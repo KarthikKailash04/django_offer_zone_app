@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+
+<section class="section-content padding-y bg">
+<div class="container">
+
+<!-- ============================ COMPONENT 1 ================================= -->
+<div class="card">
+	<div class="row no-gutters">
+		<aside class="col-md-6">
+<article class="gallery-wrap"> 
+	<div class="img-big-wrap">
+	   <a href="#"><img src="{{product.images.url}}"></a>
+	</div> <!-- img-big-wrap.// -->
+	
+</article> <!-- gallery-wrap .end// -->
+		</aside>
+<main class="col-md-6 border-left">
+<article class="content-body">
+
+
+	<div class="offer-container">
+		<div class="offer-name">{{product.offer}}</div>
+		<div class="shop-name">{{product.offer_shop_name}}</div>
+		<div class="offer-details">{{product.offer_percent}}</div>
+	  </div>
+	  <div class="offer-description">
+		<h5 style="font-weight: 500;font-family: Arial;color:orange ;">About the offer</h5>
+		<div class="offer-description-line1">{{product.discription}}</div>
+	  </div>
+	  <div class="deal-duration">
+		<h5 style="font-weight: 500;font-family: Arial;color:orange ;">Deal Starts From</h5>
+		<div class="deal-dates">{{product.starting_date|date:"F d, Y" }} <span style="font-size: 15px;">to</span> {{product.ending_date|date:"F d, Y"}}</div>
+	  </div>
+	  <div class="address-details">
+		<h5 style="font-weight: 500;font-family: Arial;color:orange ;">Address</h5>
+
+		<div class="address-line">{{product.offer_shop_address}}</div>
+
+		<div class="phone-number">{{product.number}}</div>
+		<div class="phone-number">{{product.alt_number}}</div>
+	</div>
+
+	</article> <!-- product-info-aside .// -->
+
+
+</main> <!-- col.// -->
+	</div> <!-- row.// -->
+</div> <!-- card.// -->
+<!-- ============================ COMPONENT 1 END .// ================================= -->
+
+<br>
+<head>
+<style>
+.offer-container {
+	margin-left: 100px;
+	border: none;
+	width: 300px;
+	margin-bottom: 5px;
+	margin-top: 0px;
+  }
+  
+  .offer-name {
+	margin-left: 70px;
+    font-family: serif;
+	font-size: 28px;
+	color: #666633;
+	font-weight: bold;
+  }
+  
+  .shop-name {
+	margin-left: 90px;
+font-family: serif;
+	font-size: 22px;
+  }
+  .offer-details {
+	text-align: center;
+    font-family: Monaka;
+	color: red;
+  font-size: 29px;
+  font-weight: bold;
+}
+  .offer-description-line1 {
+  font-size: 25px;
+  font-weight: bold;
+  font-family: serif;
+}
+
+.offer-description-line2 {
+  font-size: 20px;
+  font-family: serif;
+  font-weight: bold;
+
+
+}
+
+.deal-duration {
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+.deal-duration-text {
+  font-weight: bold;
+}
+
+.deal-dates {
+  font-weight: bold;
+}
+/* The previous CSS styles for .offer-container, .offer-name, .shop-name, .offer-details, .offer-description, .offer-description-line1, .offer-description-line2, .deal-duration, .deal-duration-text, .deal-dates remain unchanged */
+
+.address-details {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.address-line {
+  margin-bottom: 5px;
+  font-family: Arial;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.contact-info {
+  margin-top: 15px;
+}
+
+.phone-number {
+	font-weight: 600;
+
+  font-size: 14px;
+font-family: 15px;
+}
+
+
+ </style>
+</head> 
+
+ 
+
+</div> <!-- container .//  -->
+</section>
+</html>
+
+{% endblock %}

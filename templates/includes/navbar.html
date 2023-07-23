@@ -1,0 +1,321 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+        header {
+            background-color: #D3D3D3;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Allow flex items to wrap */
+        }
+        
+        .wide-section {
+            background-color: #D3D3D3;
+            height: 150px;
+            width: 100%;
+            border: none;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px; /* Add margin for spacing between logo and search bar */
+        }
+        
+        .logo img {
+            margin-right: 10px;
+        }
+        
+        .right-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px; /* Add margin for spacing between welcome message and search bar */
+        }
+        
+        .welcome-message {
+            text-align: left;
+            font-size: 16px;
+            font-family: 'Roboto', sans-serif;
+            color: #444444;
+            margin-right: 20px;
+        }
+        
+        
+        .welcome-message .line {
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+        
+        .welcome-message .line:last-child {
+            margin-bottom: 0;
+        }
+        
+        .welcome-message .highlight {
+            font-weight: bold;
+        }
+        
+        .welcome-message a {
+            color: #1533ac;
+            text-decoration: none;
+        }
+        
+        .welcome-message a:hover {
+            color: red;
+        }
+        
+        .dropdown {
+            position: relative;
+            margin-right: 10px; /* Adjusted margin-right for spacing */
+        }
+        
+        .dropdown-btn {
+            background-color: #0066cc;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            margin-right: 10px; /* Added margin-right for spacing */
+        }
+        
+        .dropdown-btn:hover {
+            background-color: #004f99;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            z-index: 1;
+            width: 100%; /* Set width to 100% */
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .offers-btn {
+            background-color: #0066cc;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .offers-btn:hover {
+            background-color: #004f99;
+        }
+
+        .search-bar-container {
+            display: flex;
+            align-items: center;
+            background-color: #ffffff;
+            border: 2px solid #0066cc;
+            padding: 8px;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-right: 120px;
+            margin-top: 20px;
+
+            border: 2px solid rgb(48, 181, 139);
+
+
+border-radius: 50px;
+
+        }
+
+    .text-rainbow-animation {
+  font-family:arial black;
+  font-size:30px;
+    -webkit-text-fill-color: transparent;  
+  animation: rainbow-animation 35s  infinite;
+}
+
+
+
+
+
+
+        .search-icon {
+            font-size: 18px;
+            color: #999999;
+            margin-right: 8px;
+        }
+
+        .search-bar {
+            font-size: 14px;
+
+            width: 500px;
+            background-color: transparent;
+            border: none;
+            outline: none;
+        }
+        .website-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 40px;
+            font-weight: normal;
+            color: #57B84F;
+            margin: 0;
+            padding: 10px ;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+            animation: color-change ls infinite;
+
+        }
+        .text-rainbow-animation {
+  font-family:arial black;
+  font-size:35px;
+  background-image: 
+    linear-gradient(to right, red,orange,green,blue,indigo, red); 
+  -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;  
+  animation: rainbow-animation 35s linear infinite;
+}
+
+@keyframes rainbow-animation {
+    to {
+        background-position: 3000vh;
+    }
+}
+
+.awesome {
+  font-family: futura;
+  font-style: italic;
+  text-align: center;
+  color: #313131;
+  -webkit-animation: colorchange 20s infinite alternate;
+}
+.circular--portrait { position: relative; width: 100px; height: 100px; overflow: hidden; border-radius: 50%; } 
+.circular--portrait img { width: 50%; height: auto; }
+
+@-webkit-keyframes colorchange {
+  0% {
+    color: #57B84F;
+  }
+ 
+  50% {
+    color: #83509F;
+  }
+  
+  100% {
+    color: #F6CD3F;
+  }
+  to {
+        background-position: 4500vh;
+    }
+}
+
+
+        /* Center the website heading */
+        .center {
+            text-align: center;
+        }
+        /* Additional styles for responsiveness */
+        @media screen and (max-width: 768px) {
+            .search-bar {
+                width: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+          <a href="{% url 'home' %}" class="brand-wrap"> <img class="circular--portrait" src="{% static './images/logos.jpg' %}" alt="Logo" width="130" height="140"></a>
+            <div class="dropdown">
+                <button class="dropdown-btn">Categories</button>
+                <div class="dropdown-content">
+                  <a class="dropdown-item" href="{% url 'store' %}"> ALL OFFERS </a>
+                  {% for category in links %}
+
+                  <a  class="dropdown-item" href="{{category.get_urls}}">{{category.category_name}} </a>
+                  {% endfor %}
+
+                </div>
+            </div>
+           <a href="{% url 'store' %}" ><button class="offers-btn">Offers</button> </a>
+            
+        </div>
+        <div class="self">
+        <h1 class="website-heading center text-rainbow-animation " style="margin-right: 170px ;">OFFER ZONE</h1>
+        <form action="{% url 'search' %}"  method='GET'>
+
+        <div class="search-bar-container">
+
+            <i class="search-icon">🔍</i>
+            <input type="text" class="search-bar" placeholder="Search Offer" name="keyword">
+
+
+
+
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="submit">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+        </div> 
+        
+      </form> 
+         </div>
+
+        <div class="right-section">
+            <div class="welcome-message">
+              {% if user.id is None %}
+                <div class="line"><span class="highlight">Welcome guest!</span></div>
+                <div class="line"><a href="{% url 'login' %}">Sign in</a> | <a href="{% url 'register' %}">Register As a User</a></div>
+                <div class="line"><a href="{% url 'registerS' %}">Register As a shop owner</a></div>
+              {% else %}
+              <div class="line"><span class="highlight">Welcome  <span style="text-transform:capitalize;font-size: 18px;color: #1533ac;">{{user.first_name}}!</span></div>
+              <div class="line"><a href="{% url 'logout' %}" style="padding: 55px;"><button type="button" class="btn btn-secondary btn btn-secondary btn-sm">Logout</button></a></div>
+
+{% endif %}
+{% if user.is_shopowner == True %}
+<div class="line"><a href="{% url 'off_reg' %}" style="padding: 30px;"><button type="button" class="btn btn-secondary btn">Offer-Register</button>
+</a></div>
+{% endif %}
+{% if user.id is not None %}
+{% endif %}
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+    </header>
+</body>
+</html>

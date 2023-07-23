@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+
+<header class="section-header" style=" background-color: #D3D3D3;      padding: 30px 10px"> 
+ 
+    <section class="header-main border-bottom">
+        <div class="container">
+<!-- brand-wrap.// -->
+
+    <div class="row align-items-center">
+      
+   <div class="try"><a href="{% url 'home' %}" class="brand-wrap">
+        <img src="{% static './images/logo.jpg' %}" style="height: 100px;width: 150px;">
+      
+      </a></div>
+        <div class="col-lg col-sm col-md col-6 flex-grow-0">
+            <div class="category-wrap dropdown d-inline-block float-right">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> 
+                    <i class="fa fa-bars"></i> All category </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{% url 'store' %}">ALL OFFERS </a>
+
+                    {% for category in links %}
+
+                    <a class="dropdown-item" href="{{category.get_urls}}">{{category.category_name}} </a>
+                    {% endfor %}
+                    
+</div>          </div>  <!-- category-wrap.// -->
+        </div> <!-- col.// -->
+        <a href="{% url 'store' %}" class="btn btn-outline-primary">Store</a>
+        <div class="col-lg  col-md-6 col-sm-12 col">
+            <form action="{% url 'search' %}" class="search" method='GET'>
+                <div class="input-group w-100">
+                    <input type="text" class="form-control" style="width:60%;" placeholder="Search" name="keyword">
+                    
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="submit">
+                        <i class="fa fa-search"></i>
+                      </button>
+                    </div>
+                </div>
+            </form> <!-- search-wrap .end// -->
+        </div> <!-- col.// -->
+        <div class="col-lg-3 col-sm-6 col-8 order-2 order-lg-3">
+                    <div class="d-flex justify-content-end mb-3 mb-lg-0">
+                        {% if user.id is None %}
+                        <div class="widget-header">
+                          <small class="title text-muted">Welcome guest!</small>
+                          <div>
+                            <a href="{% url 'login' %}">Sign in</a> <span class="dark-transp"> | </span>
+                            <a href="{% url 'register' %}"> Register As a User</a>
+                            <a href="{% url 'registerS' %}"> Register As a shop owner</a>
+
+                          </div>
+                        </div>
+                        {% else %}
+                        <div class="widget-header">
+                          <small class="title text-muted">Welcome {{user.first_name}}!</small>
+                          <div>
+                            <a href="#">Dashboard</a> <span class="dark-transp"> | </span>
+                            <a href="{% url 'logout' %}"> Logout</a>
+                          </div>
+                        </div>
+                        {% endif %}
+                        <a href="./cart.html" class="widget-header pl-3 ml-3">
+                            <div class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></div>
+                            <span class="badge badge-pill badge-danger notify">0</span>
+                        </a>
+
+
+
+
+                        {% if user.is_shopowner == True %}
+                            <a href="{% url 'off_reg' %}"   > FORM</a>
+                        {% endif %}
+
+                    </div> <!-- widgets-wrap.// -->
+                </div> <!-- col.// -->
+    </div> <!-- row.// -->
+        </div> <!-- container.// -->
+    </section> <!-- header-main .// -->
+    
+    
+    
+    
+    </header> <!-- section-header.// -->
